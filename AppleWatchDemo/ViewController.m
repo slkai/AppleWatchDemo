@@ -10,13 +10,14 @@
 
 @interface ViewController ()
 
+- (IBAction)btnClick:(UIButton *)sender;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,4 +25,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)btnClick:(UIButton *)sender {
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    
+    localNotification.fireDate = [[NSDate alloc] initWithTimeIntervalSinceNow:5];
+    localNotification.alertTitle = @"title";
+    localNotification.alertBody = @"body";
+    localNotification.category = @"category";
+    localNotification.userInfo = @{@"userInfo":@"userInfo"};
+    
+    localNotification.hasAction = YES;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
 @end

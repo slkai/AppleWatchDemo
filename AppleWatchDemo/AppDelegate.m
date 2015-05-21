@@ -15,6 +15,14 @@
 @implementation AppDelegate
 
 
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply
+{
+    
+    NSLog(@"appDelegate handle WatchKit Request : %@",userInfo);
+    
+    reply(@{@"replyInfo":@"我的信息"});
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     return YES;
